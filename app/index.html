@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title>ParentHood</title>
+    <title>theParentHood</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -21,31 +21,34 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
+  <body class="row" ng-App="">
+    <header class="large-12 columns red">
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
-        <li>Sass</li>
-        <li>Modernizr</li>
-        <li>Bourbon & Neat</li>
-        <li>UnderscoreJS</li>
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
-    </div>
+    </header>
+      <div class="small-2 columns container">this is 2</div>
+      <div class="small-10 columns ">this is 10</div>
+      <footer class="large-12 columns blue">
+        <p> this is the footer </p>
+      </footer>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/foundation/js/foundation.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/restangular/dist/restangular.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/question/questions-factory.js"></script>
+        <script src="scripts/answers/answers-factory.js"></script>
+        <script src="scripts/questions/add-question-controller.js"></script>
+        <script src="scripts/questions/edit-question-controller.js"></script>
+        <script src="scripts/questions/questions-controller.js"></script>
         <!-- endbuild -->
 </body>
 </html>
