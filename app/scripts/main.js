@@ -1,33 +1,75 @@
+Parse.initialize("cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "SsEF54biIRFKzfscDlupAmCHAJJ7iQGQaWCHmsRE");
+
 (function (){
 
   var app = angular.module('ParentHood', ['ngRoute', 'restangular']);
 
   app.config( function ($routeProvider, RestangularProvider) {
 
-    RestangularProvider.setBaseUrl('http://api.parse.com/1/classes/');
+    RestangularProvider.setBaseUrl('https://api.parse.com/1/');
     RestangularProvider.setRestangularFields({
       id: 'objectId'
     });
 
     // set default header for Parse backend
-RestangularProvider.setDefaultHeaders({"X-Parse-Application-Id: cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "X-Parse-REST-API-Key: 3P5mOsEqFzJ0oEZpDtr36UnGwszbPVqwy7b2BYXh", "Content-Type: application/json"});
+    RestangularProvider.setDefaultHeaders({
+      'X-Parse-Application-Id': 'cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps', 'X-Parse-REST-API-Key': '3P5mOsEqFzJ0oEZpDtr36UnGwszbPVqwy7b2BYXh', 'Content-Type': 'application/json'
+      });
 
+      RestangularProvider.setResponseExtractor(function(response, operation) {
+        if (operation === 'getList'){
+
+          return response.results;
+        }
+
+        else {
+
+          return response;
+        }
+
+    });
+
+    $routeProvider.when('/login', {
+      templateUrl: 'templates/login.html',
+      controller: 'LoginUserController'
+    });
+
+    $routeProvider.when('/signup', {
+      templateUrl: 'templates/signup.html',
+      controller: 'LoginUserController'
+    });
 
     $routeProvider.when('/', {
       templateUrl: 'templates/main.html',
       controller: 'QuestionsController'
     });
 
-    $routeProvider.when('/edit/:id', {
-      templateUrl: 'templates/edit.html',
-      controller: 'EditQuestionController'
+    $routeProvider.when('/question/:id', {
+      templateUrl: 'templates/singleQuestion.html',
+      controller: 'SingleQuestionController'
+    });
+
+    $routeProvider.when('/editQuestion/:id', {
+      templateUrl: 'templates/editQuestion.html',
+      controller: 'SingleQuestionController'
     });
 
     $routeProvider.when('/add', {
-      templateUrl: 'templates/add-template.html',
+      templateUrl: 'templates/add.html',
       controller: 'AddQuestionController'
     });
 
+  });
+
+  app.directive('logout', function (){
+
+    return {
+      link: function ($scope, element, attrs) {
+        element.bind('click', function () {
+          Parse.User.logOut();
+        });
+      }
+    }
   });
 
 

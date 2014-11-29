@@ -1,3 +1,4 @@
+<a href='#add'><button>Ask a New Question</button></a>
 <ul>
-  <li ng-repeat="question in questions"></li>
+  <li ng-repeat="question in questions"><a href="#question/{{ question.objectId }}">{{ question.authorName }} asks: "{{ question.text }}"</a></li>
 </ul>

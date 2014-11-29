@@ -4,7 +4,7 @@
   .factory('questionsFactory', ['$rootScope', 'Restangular', function ($rootScope, Restangular) {
 
   //defines the endpoint where Restangular gets the data - url defined in app.config with Restangular provider
-  var allQuestions = Restangular.all('questions');
+  var allQuestions = Restangular.all('classes/questions');
 
   function getQuestions () {
     //retrieves (gets the data) from the REST endpoint
@@ -12,7 +12,7 @@
 
   }
 
-  function getQuestions (id) {
+  function getQuestion (id) {
     //gets a single question from the server based on id
     return allQuestions.get(id);
 

@@ -1,11 +1,13 @@
 (function () {
 
   angular.module('ParentHood')
-    .controller('EditQuestionController', ['questionsFactory', '$scope', '$routeParams', '$rootScope', '$location', function (choresFactory, $scope, $routeParams, $rootScope, $location) {
+    .controller('SingleQuestionController', ['questionsFactory', 'usersFactory', '$scope', '$routeParams', '$rootScope', '$location', function (questionsFactory, usersFactory, $scope, $routeParams, $rootScope, $location) {
 
-  questionsFactory.getQuestion($routeParams.id).then(function (data){
+    usersFactory.checkUser();
 
-    $scope.question = data.result;
+    questionsFactory.getQuestion($routeParams.id).then(function (data){
+
+    $scope.question = data;
 
   });
 

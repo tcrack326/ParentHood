@@ -1,10 +1,12 @@
 (function () {
 
 angular.module('ParentHood')
-  .controller('QuestionsController', ['questionsFactory', '$scope', '$rootScope', '$location', function (questionsFactory, $scope, $rootScope, $location) {
+  .controller('QuestionsController', ['questionsFactory', 'usersFactory', '$scope', '$rootScope', '$location', function (questionsFactory, usersFactory, $scope, $rootScope, $location) {
+
+  usersFactory.checkUser();
 
   questionsFactory.getQuestions().then( function (data) {
-    $scope.questions = data.results;
+    $scope.questions = data;
   });
 
   }]);

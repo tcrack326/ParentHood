@@ -21,12 +21,16 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body class="row" ng-App="">
+  <body class="row" ng-app="ParentHood">
     <header class="large-12 columns red">
-
+      <p> This is the header </p>
+      <nav>
+        <a href="/">Home</a>
+      <div id="login">
+      </div>
+      </nav>
     </header>
-      <div class="small-2 columns container">this is 2</div>
-      <div class="small-10 columns ">this is 10</div>
+      <div class="small-12 columns" ng-view></div>
       <footer class="large-12 columns blue">
         <p> this is the footer </p>
       </footer>
@@ -43,12 +47,15 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="//www.parsecdn.com/js/parse-1.3.2.min.js"></script>
         <script src="scripts/main.js"></script>
-        <script src="scripts/question/questions-factory.js"></script>
+        <script src="scripts/questions/questions-factory.js"></script>
+        <script src="scripts/users/users-factory.js"></script>
         <script src="scripts/answers/answers-factory.js"></script>
         <script src="scripts/questions/add-question-controller.js"></script>
-        <script src="scripts/questions/edit-question-controller.js"></script>
+        <script src="scripts/questions/single-question-controller.js"></script>
         <script src="scripts/questions/questions-controller.js"></script>
+        <script src="scripts/users/login-controller.js"></script>
         <!-- endbuild -->
 </body>
 </html>
