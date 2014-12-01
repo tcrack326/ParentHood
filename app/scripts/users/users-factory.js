@@ -26,20 +26,21 @@
   }
 
   function checkUser() {
+
     if(Parse.User.current()){
-      $('#login').html("<a id='logout' logout href='/'>Logout</a>");
-      // $('#logout').show();
+      $('#login').html("<a href='/' ng-click='logOutUser()'>Logout</a>");
       // $('#login').hide();
       // $('#signup').hide();
     }
 
     else {
-      $('#login').html("<a href='#/login'>Login</a><a href='#/signup'>Sign Up</a>");
+      $('#login').html("<a href='#/login'>Login</a> | <a href='#/signup'>Sign Up</a>");
       // $('#logout').hide();
       // $('#login').show();
       // $('#signup').show();
     }
   }
+
   function logOutUser() {
     Parse.User.logOut();
   }

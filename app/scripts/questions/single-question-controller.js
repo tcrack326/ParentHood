@@ -4,6 +4,9 @@
     .controller('SingleQuestionController', ['questionsFactory', 'usersFactory', '$scope', '$routeParams', '$rootScope', '$location', function (questionsFactory, usersFactory, $scope, $routeParams, $rootScope, $location) {
 
     usersFactory.checkUser();
+    $scope.logOutUser = function () {
+      usersFactory.logOutUser();
+    };
 
     questionsFactory.getQuestion($routeParams.id).then(function (data){
 

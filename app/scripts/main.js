@@ -16,6 +16,7 @@ Parse.initialize("cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "SsEF54biIRFKzfscDl
       'X-Parse-Application-Id': 'cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps', 'X-Parse-REST-API-Key': '3P5mOsEqFzJ0oEZpDtr36UnGwszbPVqwy7b2BYXh', 'Content-Type': 'application/json'
       });
 
+      //define where the data is located in the response based on the operation
       RestangularProvider.setResponseExtractor(function(response, operation) {
         if (operation === 'getList'){
 
@@ -65,6 +66,7 @@ Parse.initialize("cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "SsEF54biIRFKzfscDl
 
     return {
       link: function ($scope, element, attrs) {
+
         element.bind('click', function () {
           Parse.User.logOut();
         });

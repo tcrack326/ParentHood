@@ -9,6 +9,10 @@ angular.module('ParentHood')
     $scope.questions = data;
   });
 
+  $scope.logOutUser = function () {
+    usersFactory.logOutUser();
+  };
+
   }]);
 
 }());

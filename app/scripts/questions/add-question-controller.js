@@ -4,6 +4,9 @@
     .controller('AddQuestionController', ['questionsFactory', 'usersFactory', '$scope', '$rootScope', '$location', function (questionsFactory, usersFactory, $scope, $rootScope, $location) {
 
   usersFactory.checkUser();
+  $scope.logOutUser = function () {
+    usersFactory.logOutUser();
+  };
 
   $scope.addQuestion = function (question) {
             var user = Parse.User.current();
