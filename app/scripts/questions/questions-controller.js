@@ -13,6 +13,13 @@ angular.module('ParentHood')
     usersFactory.logOutUser();
   };
 
+  if(Parse.User.current()){
+    $('#askQuestion').show();
+  }
+  else {
+    $('#askQuestion').hide();
+  }
+
   }]);
 
 }());

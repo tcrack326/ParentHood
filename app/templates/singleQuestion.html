@@ -1,3 +1,3 @@
-<p> {{ question.text }} </p><a href='#editQuestion/{{ question.objectId }}'>Edit the Question</a>
+<p> {{ question.text }} </p><a id="editQuestion" href='#editQuestion/{{ question.objectId }}'>Edit the Question</a>
 <br/>
-<button ng-click="deleteQuestion(question)">Remove Question</button>
+<button id="deleteQuestion" ng-click="deleteQuestion(question)">Remove Question</button>

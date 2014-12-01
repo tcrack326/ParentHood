@@ -11,8 +11,18 @@
     questionsFactory.getQuestion($routeParams.id).then(function (data){
 
     $scope.question = data;
+    if(Parse.User.current().id === $scope.question.user){
+      $('#editQuestion').show();
+      $('#deleteQuestion').show();
+    }
+    else {
+      $('#editQuestion').hide();
+      $('#deleteQuestion').hide();
+    }
 
   });
+
+
 
 
   $scope.updateQuestion = function (question) {

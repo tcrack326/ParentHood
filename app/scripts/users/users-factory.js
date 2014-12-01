@@ -49,6 +49,7 @@
 
     allUsers.post(user).then( function (){
       //broadcast to the parent controller that the user has been added and redirect in the controller
+      Parse.User.logIn(user.username,user.password);
       $rootScope.$broadcast('user:added');
     });
   }
