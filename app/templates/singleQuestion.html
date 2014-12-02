@@ -1,14 +1,21 @@
+
 <span> On {{ question.createdAt }}, {{ question.authorName }} asked: </span>
 <p> {{ question.text }} </p>
 <a id="editQuestion" href='#editQuestion/{{ question.objectId }}'>Edit the Question</a>
 <br/>
-<textarea ng-model="answer.text"></textarea>
-<button id="answerQuestion" ng-click="addAnswer(answer)">Answer</button>
+<h4>Total Views: {{ question.totalViews }} </h4>
+<div id="answerArea">
+  <h4>Answer</h4>
+  <textarea id="answerBox" ng-model="answer.text"></textarea>
+  <button id="answerQuestion" ng-click="addAnswer(answer)">Answer</button>
+</div>
 <button id="deleteQuestion" ng-click="deleteQuestion(question)">Remove Question</button>
 <ul>
   <li ng-repeat="answer in answers">
     <span>On {{ answer.createdAt }} {{ answer.authorName }} said: </span><br/>
     <p> {{ answer.text }} </p>
+    <span> Votes: {{ answer.votes }} </span>
+    <button id="{{ answer.objectId }}-{{ answer.user }}" class="deleteAnswer" ng-click="deleteAnswer(answer)">Delete the Answer</button>
     <button class="voteUp" ng-click="voteUp(answer)">Vote Up</button>
     <button class="voteDown" ng-click="voteDown(answer)">Vote Down</button>
     <button class="isAnswer" ng-click="isAnswer(answer)">Mark as the Answer</button>
