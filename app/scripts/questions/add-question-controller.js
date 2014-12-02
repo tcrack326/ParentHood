@@ -12,6 +12,7 @@
             var user = Parse.User.current();
             question.authorName = user.attributes.username;
             question.user = user.id;
+            question.totalViews = 0;
             questionsFactory.addQuestion(question);
 
             $rootScope.$on('question:added', function () {
