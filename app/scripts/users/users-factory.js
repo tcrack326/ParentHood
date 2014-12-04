@@ -12,7 +12,7 @@
   var url = 'https://api.parse.com/1/login?';
 
   function loginUser (user) {
-      // $http.get(url + 'username=' + encodeURIComponent(user.username) + '&password='+ encodeURIComponent(user.password), PARSE_HEADERS);
+
       Parse.User.logIn(user.username, user.password, {
         success: function(user) {
           // Do stuff after successful login.
@@ -29,15 +29,12 @@
 
     if(Parse.User.current()){
       $('#login').html("<a href='/' ng-click='logOutUser()'>Logout</a>");
-      // $('#login').hide();
-      // $('#signup').hide();
+
     }
 
     else {
       $('#login').html("<a href='#/login'>Login</a> | <a href='#/signup'>Sign Up</a>");
-      // $('#logout').hide();
-      // $('#login').show();
-      // $('#signup').show();
+      
     }
   }
 
