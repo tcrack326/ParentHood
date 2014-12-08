@@ -2,7 +2,7 @@
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
 //Foundation
-@import '../../bower_components/foundation/scss/foundation';
+@import '../../bower_components/foundation/scss/foundation.scss';
 
 
 //constants
@@ -10,52 +10,87 @@ $titleFont: 'Comfortaa', cursive;
 $scriptFont: 'Dancing Script', cursive;
 // Custom Styles
 
+body {
+  min-width: 320px;
+  background: #fafafa;
+  font-family: $titleFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+h3, h4, h5 {
+  font-family: $titleFont;
+}
+
 /*===========================================================================
                           Header styling
 ============================================================================*/
+header {
+  background-color: white;
+}
 
 h1 {
   font-family: $titleFont;
   float: left;
+  font-size: 1.9em;
+  line-height: .9;
 }
 
 h2 {
+  margin-left: 5%;
   float: left;
   clear: both;
-  font-size: .2em;
+  font-size: 1.0em;
+  line-height: .9;
   font-family: $scriptFont;
 }
 
 nav {
-  border: 1px solid white;
-  //float: right;
   position: absolute;
-  top: 5px;
-  right: 5px;
-  opacity: 50%;
+  top: 10px;
+  right: 2px;
+  opacity: 10%;
   margin: 0 auto;
+}
 
-  & > * {
-    float: left;
-    margin: 5px;
+//hide the hamburger nav above 600px
+@media (min-width: 600px) {
+  .hamburger {
+    display: none;
+  }
+
+  .login {
+    list-style: none;
+
+    li {
+      float: left;
+      margin-right: 5px;
+    }
   }
 }
+//turn off the nav links below 600px
+@media (max-width: 600px) {
+  #login {
+    display: none;
+  }
 
+  .login {
+    list-style: none;
+  }
+
+}
 
 /*==========================================================================
+                                End of Header - Begin Sort/Search
 ===========================================================================*/
 
-body {
-  min-width: 320px;
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
-}
+.sortSearch {
+  background-color: white;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid gray;
+  border-radius: 5%;
 
-.blue {
-  background-color: blue;
-}
-
-.red {
-  background-color: red;
+  .search {
+    
+  }
 }

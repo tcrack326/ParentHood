@@ -24,17 +24,15 @@
   </head>
 
   <body class="row" ng-app="ParentHood">
-    <header class="large-12 columns red">
-      <h1>the Parent Hood</h1>
+    <header class="large-12 columns">
+      <h1><a href="#">the Parent Hood</a></h1>
       <nav>
-        <img class="hamburger" src="images/hamburger.svg"/>
-        <div class="nav">
-          <a href="/">Home</a>
-          <div id="login" logout>
-          </div>
-        </div>
+        <a class="hamburger" href="" data-reveal-id="navModal"><img src="images/gray-hamburger.svg"/></a>
+        <ul class="login" id="login">
+
+        </ul>
       </nav>
-      <h2>because it takes a village</h2>
+      <h2><a href="#">because it takes a village</a></h2>
 
     </header>
       <div class="small-12 columns" ng-view></div>
@@ -42,10 +40,20 @@
         <p> this is the footer </p>
       </footer>
 
+      <!-- this is the modal view for navigation -------->
+
+      <div id="navModal" class="reveal-modal" data-reveal>
+        <ul class='login'>
+
+        </ul>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/underscore/underscore.js"></script>
+    <script src="../bower_components/fastclick/lib/fastclick.js"></script>
     <script src="../bower_components/foundation/js/foundation.min.js"></script>
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-route/angular-route.min.js"></script>

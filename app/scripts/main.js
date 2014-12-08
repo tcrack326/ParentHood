@@ -1,6 +1,13 @@
 Parse.initialize("cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "SsEF54biIRFKzfscDlupAmCHAJJ7iQGQaWCHmsRE");
 
+logOutUser = function() {
+  Parse.User.logOut();
+}
+
+
 (function (){
+
+  $(document).foundation();
 
   var app = angular.module('ParentHood', ['ngRoute', 'restangular']);
 
@@ -71,6 +78,7 @@ Parse.initialize("cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "SsEF54biIRFKzfscDl
     });
 
   });
+
 
   app.directive('logout', function (){
 

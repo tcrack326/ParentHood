@@ -35,17 +35,20 @@
   function checkUser() {
 
     if(Parse.User.current()){
-      $('#login').html("<a href='/' ng-click='logOutUser()'>Logout</a>");
+
+      $('.login').html("<li><a href='/'>Home</a></li><li><a href='#/parent/"+ Parse.User.current().id+"'>My Profile</a></li><li><a href='' logout>Logout</a></li>");
 
     }
 
     else {
-      $('#login').html("<a href='#/login'>Login</a> | <a href='#/signup'>Sign Up</a>");
+
+      $('.login').html("<li><a href='/'>Home</a></li><li><a href='#/login'>Login</a></li><li><a href='#/signup'>Sign Up</a></li>");
 
     }
   }
 
   function logOutUser() {
+    console.log('log out');
     Parse.User.logOut();
   }
 

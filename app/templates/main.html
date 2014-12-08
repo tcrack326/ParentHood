@@ -1,7 +1,15 @@
 <a id='askQuestion' href='#add'><button>Ask a New Question</button></a>
-<a href='' ng-if="username" ng-click='doSearch(username)'> My Questions </a> <a href=''> Unaswered </a>
-<span> Sort by: <a href="" ng-click="reverse=!reverse;order('totalViews', reverse)">Views</a> | <a href="" ng-click="reverse=!reverse;order('createdAt',reverse)">Recent</a> | <a href="" ng-click="reverse=!reverse;order('totalAnswers', reverse)">Answers</a> | <a href="" ng-click="reverse=!reverse;order('totalVotes', reverse)">Votes</a>
-  Search: <input ng-model="searchText">
+ </a>
+<div class="sortSearch">
+    <span> Sort by: </span>
+    <a href='' ng-if="username" ng-click='doSearch(username)'> My Questions </a> |
+    <a href='' ng-click="reverse=!reverse;order('-totalAnswers', reverse)"> Unanswered </a> |
+    <a href='' ng-click="reverse=!reverse;order('totalViews', reverse)">Views</a> |
+    <a href='' ng-click="reverse=!reverse;order('createdAt',reverse)">Recent</a> |
+    <a href='' ng-click="reverse=reverse;order('totalAnswers', reverse)">Answers</a> |
+    <a href='' ng-click="reverse=!reverse;order('totalVotes', reverse)">Votes</a>
+    <span class="search">Search: <input ng-model="searchText"></span>
+</div>
 <ul>
   <li ng-repeat="question in questions | filter:searchText"><a href="#parent/{{ question.user }}"> {{ question.authorName }}</a> asks: <a href="#question/{{ question.objectId }}"> "{{ question.text }}"</a>
     <br/>

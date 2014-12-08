@@ -5,7 +5,10 @@ angular.module('ParentHood')
 
   usersFactory.checkUser();
 
+  $('#navModal').foundation('reveal', 'close');
+
   if(Parse.User.current()){
+    $scope.user = Parse.User.current();
     $scope.username = Parse.User.current().attributes.username;
   }
 
@@ -31,8 +34,20 @@ angular.module('ParentHood')
 
   $scope.doTagSearch();
 
+  $scope.checkUser = function () {
+    if($scope.user){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
   $scope.logOutUser = function () {
+    console.log('something');
     usersFactory.logOutUser();
+    usersFactory.checkUser();
   };
 
   if(Parse.User.current()){
