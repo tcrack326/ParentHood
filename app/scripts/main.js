@@ -60,6 +60,16 @@ Parse.initialize("cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "SsEF54biIRFKzfscDl
       controller: 'AddQuestionController'
     });
 
+    $routeProvider.when('/tags/:searchText', {
+      templateUrl: 'templates/main.html',
+      controller: 'QuestionsController'
+    });
+
+    $routeProvider.when('/parent/:id', {
+      templateUrl: 'templates/user-profile.html',
+      controller: 'ProfileUserController'
+    });
+
   });
 
   app.directive('logout', function (){

@@ -1,7 +1,8 @@
 <form ng-submit="addQuestion(question)">
 
-  <input ng-model="question.text" placeholder="Ask a question" />
-
+  <input ng-model="question.text" required placeholder="Ask a question" />
+  <input ng-model="question.tags" ng-list required placeholder="List Some Categories for your Question" />
+{{ question.tags }}
   <button>Ask Question</button>
 
 </form>

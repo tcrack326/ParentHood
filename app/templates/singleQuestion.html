@@ -1,7 +1,7 @@
 
 <span> On {{ question.createdAt }}, {{ question.authorName }} asked: </span>
 <p> {{ question.text }} </p>
-<a ng-if='userQuestionAuth()' id="editQuestion" href='#editQuestion/{{ question.objectId }}'>Edit the Question</a>
+<a ng-if='userQuestionAuth(question)' id="editQuestion" href='#editQuestion/{{ question.objectId }}'>Edit the Question</a>
 <br/>
 <h4>Total Views: {{ question.totalViews }} </h4>
 <h4>Total Answers: {{ question.totalAnswers }} </h4>
@@ -12,8 +12,9 @@
   <button id="answerQuestion" ng-click="addAnswer(answer,question)">Answer</button>
 </div>
 <button ng-if="userQuestionAuth(question)" id="deleteQuestion" ng-click="deleteQuestion(question)">Remove Question</button>
+<h5> Tags: <ul><li ng-repeat="tag in question.tags"><a href="#/tags/{{tag}}" ng-click="doSearch(searchText)">{{ tag }}<a></li></ul></h5>
 <ul>
-  <li ng-repeat="answer in answers">
+  <li ng-repeat="answer in answers | orderBy:predicate:reverse">
     <h4 ng-if="checkIsAnswer(answer)">MOST USEFUL ANSWER</h4>
     <span>On {{ answer.createdAt }} {{ answer.authorName }} said: </span><br/>
     <p> {{ answer.text }} </p>
@@ -22,7 +23,7 @@
       <button ng-if="userAnswerAuth(answer)" class="deleteAnswer, {{ answer.user }}" ng-click="deleteAnswer(answer,question)">Delete the Answer</button>
       <button ng-disabled="hasVotedUp(answer)" ng-if="userVoteAuth(answer)" class="voteUp" ng-click="voteUp(answer, question)">Vote Up</button>
       <button ng-disabled="hasVotedDown(answer)" ng-if="userVoteAuth(answer)" class="voteDown" ng-click="voteDown(answer, question)">Vote Down</button>
-      <button ng-disabled="checkIsAnswer(answer)" ng-if="userQuestionAuth(question)" class="isAnswer" ng-click="isAnswer(answer)">Mark as the Answer</button>
+      <button ng-disabled="checkIsAnswer(answer)" ng-if="userQuestionAuth(question)" class="isAnswer" ng-click="isAnswer(answer,question)">Mark as the Answer</button>
     </div>
   </li>
 </ul>

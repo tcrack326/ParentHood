@@ -13,6 +13,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <link href='http://fonts.googleapis.com/css?family=Dancing+Script:400,700|Comfortaa:400,700' rel='stylesheet' type='text/css'>
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -24,12 +25,17 @@
 
   <body class="row" ng-app="ParentHood">
     <header class="large-12 columns red">
-      <p> This is the header </p>
+      <h1>the Parent Hood</h1>
       <nav>
-        <a href="/">Home</a>
-      <div id="login" logout>
-      </div>
+        <img class="hamburger" src="images/hamburger.svg"/>
+        <div class="nav">
+          <a href="/">Home</a>
+          <div id="login" logout>
+          </div>
+        </div>
       </nav>
+      <h2>because it takes a village</h2>
+
     </header>
       <div class="small-12 columns" ng-view></div>
       <footer class="large-12 columns blue">
@@ -52,11 +58,13 @@
         <script src="scripts/main.js"></script>
         <script src="scripts/questions/questions-factory.js"></script>
         <script src="scripts/users/users-factory.js"></script>
+        <script src="scripts/users/userStats-factory.js"></script>
         <script src="scripts/answers/answers-factory.js"></script>
         <script src="scripts/questions/add-question-controller.js"></script>
         <script src="scripts/questions/single-question-controller.js"></script>
         <script src="scripts/questions/questions-controller.js"></script>
         <script src="scripts/users/login-controller.js"></script>
+        <script src="scripts/users/user-profile.js"></script>
         <!-- endbuild -->
 </body>
 </html>

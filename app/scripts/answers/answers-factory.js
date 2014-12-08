@@ -28,9 +28,8 @@
   }
 
   function updateAnswer (answer) {
-
   answer.put().then( function (){
-      //broadcast to the parent controller that the chore has been updated and redirect in the controller
+      //broadcast to the parent controller that the answer has been updated and redirect in the controller
       $rootScope.$broadcast('answer:updated');
     });
   }
@@ -38,7 +37,7 @@
   function deleteAnswer (answer) {
 
   answer.remove().then( function (){
-      //broadcast to the parent controller that the chore has been updated and redirect in the controller
+      //broadcast to the parent controller that the answer has been deleted and redirect in the controller
       $rootScope.$broadcast('answer:deleted');
     });
   }

@@ -25,6 +25,13 @@
     });
   }
 
+  function getUser (id) {
+    //gets a single user from the server based on id
+    return allUsers.get(id);
+
+  }
+
+
   function checkUser() {
 
     if(Parse.User.current()){
@@ -34,7 +41,7 @@
 
     else {
       $('#login').html("<a href='#/login'>Login</a> | <a href='#/signup'>Sign Up</a>");
-      
+
     }
   }
 
@@ -46,14 +53,17 @@
 
     allUsers.post(user).then( function (){
       //broadcast to the parent controller that the user has been added and redirect in the controller
-      Parse.User.logIn(user.username,user.password);
-      $rootScope.$broadcast('user:added');
+      Parse.User.logIn(user.username,user.password).then( function (){
+        $rootScope.$broadcast('user:loggedIn');
+      });
     });
   }
 
 
+
   return {
         loginUser: loginUser,
+        getUser: getUser,
         checkUser: checkUser,
         logOutUser: logOutUser,
         addNewUser: addNewUser

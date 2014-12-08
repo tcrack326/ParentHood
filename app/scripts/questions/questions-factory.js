@@ -27,7 +27,6 @@
   }
 
   function updateQuestion (question) {
-
   question.put().then( function (){
       //broadcast to the parent controller that the chore has been updated and redirect in the controller
       $rootScope.$broadcast('question:updated');
