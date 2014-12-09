@@ -43,13 +43,6 @@ angular.module('ParentHood')
     }
   }
 
-
-  $scope.logOutUser = function () {
-    console.log('something');
-    usersFactory.logOutUser();
-    usersFactory.checkUser();
-  };
-
   if(Parse.User.current()){
     $('#askQuestion').show();
   }

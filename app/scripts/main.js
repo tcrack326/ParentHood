@@ -1,8 +1,8 @@
 Parse.initialize("cu3uLycT23GMhmWTRCAuEgM1I44LVHvdft4YL3ps", "SsEF54biIRFKzfscDlupAmCHAJJ7iQGQaWCHmsRE");
 
-logOutUser = function() {
+var logOutUser = function() {
   Parse.User.logOut();
-}
+};
 
 
 (function (){
@@ -80,17 +80,17 @@ logOutUser = function() {
   });
 
 
-  app.directive('logout', function (){
-
-    return {
-      link: function ($scope, element, attrs) {
-
-        element.bind('click', function () {
-          Parse.User.logOut();
-        });
-      }
-    }
-  });
+  // app.directive('logout', function (){
+  //
+  //   return {
+  //     link: function ($scope, element, attrs) {
+  //
+  //       element.bind('click', function () {
+  //         Parse.User.logOut();
+  //       });
+  //     }
+  //   }
+  //});
 
 
 
