@@ -21,7 +21,7 @@
   function addNewUserStats (user) {
     var userStats={};
     userStats.userId = user.id;
-    userStats.imageURL = "";
+    userStats.imageURL = "images/defaultUser.jpg";
     userStats.questionsAsked = 0;
     userStats.answersPosted = 0;
     userStats.yearsParenting = 0;

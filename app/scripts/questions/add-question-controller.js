@@ -17,14 +17,17 @@
             question.totalAnswers = 0;
             question.totalVotes = 0;
             question.hasViewed = [];
+            question.userImageURL;
             userStatsFactory.getUserStats(user.id).then( function(data){
               var userStats = data[0];
               userStats.questionsAsked++;
               userStatsFactory.updateUserStats(userStats);
+              question.userImageURL = userStats.imageURL;
+              questionsFactory.addQuestion(question);
             });
 
 
-            questionsFactory.addQuestion(question);
+
 
             $rootScope.$on('question:added', function () {
               $location.path('/');

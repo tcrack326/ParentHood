@@ -1,23 +1,26 @@
 <section id="questions">
-  <h2>Questions</h2>
-    <ul class="sortSearch">
-      <li class='search'>Search <span class="icon-search"></span> <input ng-model="searchText" placeholder="Search Users/Tags/Text"/></li>
-      <li> Sort by:
-      <!-- <a href='' ng-if="username" ng-click='doSearch(username)'> My Questions </a>
-      <a href='' ng-click="reverse=!reverse;order('-totalAnswers', reverse)"> Unanswered </a> -->
-      <a href='' ng-click="reverse=!reverse;order('totalViews', reverse)">Views</a>
-      <a href='' ng-click="reverse=!reverse;order('createdAt',reverse)">Recent</a>
-      <a href='' ng-click="reverse=reverse;order('totalAnswers', reverse)">Answers</a>
-      <a href='' ng-click="reverse=!reverse;order('totalVotes', reverse)">Votes</a></li>
+  <div class="sortSearch">
+      <div class="askButton"><a id='askQuestion' href='#add'><button class="button">Ask a New Question</button></a>
+      </div>
+      <ul class='sort'>
+        <!-- <a href='' ng-if="username" ng-click='doSearch(username)'> My Questions </a>
+        <a href='' ng-click="reverse=!reverse;order('-totalAnswers', reverse)"> Unanswered </a> -->
+        <li>Sort by:  </li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('totalViews',reverse)">Views</a></li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('createdAt',reverse)">Recent</a></li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('totalAnswers',reverse)">Answers</a></li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('totalVotes',reverse)">Votes</a></li>
+      </ul>
+      <div class='searchInput'>Search <span class="icon-search"></span> <input ng-model="searchText" placeholder="Users, Tags, or Text"/>
+      </div>
+  </div>
+    <ul class='questionList'>
+      <li ng-repeat="question in questions | filter:searchText"> On<span> {{ question.createdAt }}</span><img src="{{ question.userImageURL }}"/><a href="#parent/{{ question.user }}"> {{ question.authorName }}</a> asked: <a href="#question/{{ question.objectId }}"> "{{ question.text }}"</a>
+        <br/>
+        <h5> Views: {{ question.totalViews }} </h5>
+        <h5> Answers: {{ question.totalAnswers }}</h5>
+        <h5> Votes: {{ question.totalVotes }}</h5>
+        <h5> Tags: <ul><li ng-repeat="tag in question.tags"><a class="tag" href="" ng-click="doSearch(searchText)">{{ tag }}<a></li></ul></h5>
+      </li>
     </ul>
-    <a id='askQuestion' class="askQuestionBtn" href='#add'><button>Ask a New Question</button></a>
-  <ul class='questionList'>
-    <li ng-repeat="question in questions | filter:searchText"><a href="#parent/{{ question.user }}"> {{ question.authorName }}</a> asks: <a href="#question/{{ question.objectId }}"> "{{ question.text }}"</a>
-      <br/>
-      <h5> Views: {{ question.totalViews }} </h5>
-      <h5> Answers: {{ question.totalAnswers }}</h5>
-      <h5> Votes: {{ question.totalVotes }}</h5>
-      <h5> Tags: <ul><li ng-repeat="tag in question.tags"><a href="" ng-click="doSearch(searchText)">{{ tag }}<a></li></ul></h5>
-    </li>
-  </ul>
 </section>

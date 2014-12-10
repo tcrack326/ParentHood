@@ -15,21 +15,53 @@ $blueColor: RGBA(86, 155, 227, 1);
 
 body {
   min-width: 320px;
-  background: #fafafa;
+  background: white;
   font-family: $titleFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+}
+
+.container {
+  border:1px solid $yellowColor;
+}
+
+footer {
+  background-color: $yellowColor;
 }
 
 h3, h4, h5 {
   font-family: $titleFont;
 }
 
+.tag {
+  color: white;
+  background-color: $orangeColor;
+  padding: 5px;
+  border-radius: 50%;
+
+  &:hover {
+    color: white;
+    background-color: $blueColor
+  }
+}
+
+.button {
+  color: white;
+  background-color: $orangeColor;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0 auto;
+
+  &:hover {
+    background-color: $blueColor;
+  }
+}
+
 /*===========================================================================
                           Header styling
 ============================================================================*/
+
 header {
   background-color: $yellowColor;
-  margin-bottom: 5%;
     a {
       color: white;
 
@@ -78,19 +110,19 @@ header {
       font-size: 24px;
     }
   }
+}
 
-  .modal {
-    li {
-      font-size: 32px;
-      border-bottom: 1px solid gray;
+.modal {
+  li {
+    font-size: 1.5em;
+    color: gray;
+    border-bottom: 1px solid gray;
 
-      span {
-        margin-right: 15px;
-      }
+    span {
+      margin-right: 15px;
     }
   }
 }
-
 //hide the hamburger nav above 600px
 @media (min-width: 600px) {
 
@@ -122,44 +154,87 @@ header {
 }
 
 /*==========================================================================
-                                End of Header - Begin Questions and Sort/Search
+              End of Header - Begin Questions and Sort/Search
 ===========================================================================*/
 
 #questions {
-  border: 1px solid $orangeColor;
-  border-radius: 10px;
   margin: 0 auto;
 
   h2 {
-    font-size: 1.0em;
+    font-size: 1.3em;
     color: white;
     margin: 0;
     text-align: center;
     font-family: $titleFont;
     background-color: $yellowColor;
+    padding: 2%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
 
   .sortSearch {
-    list-style: none;
     float: left;
-    margin: 0 auto;
-    padding: 0;
+    clear: both;
     width: 100%;
+    margin-top: 2%;
+    text-align: center;
 
-    li {
+    .askButton {
       float: left;
-      margin: 2%;
+      margin-left: 1%;
+    }
+
+    .sort {
+      list-style: none;
+      float: left;
+      margin: 2% 0 2% 0;
+
+      li {
+        float: left;
+        margin-left: 3px;
+      }
+    }
+
+    .searchInput {
+      float: left;
+      margin-left: 1%;
+    }
+
+  @media (min-width: 835px) {
+    .searchInput {
+      float: right;
+      margin-right: 1%;
+    }
+  }
+
+  @media (min-width: 525px) {
+    .sort {
+      margin-top: 0;
+      margin-left: 2%;
+    }
     }
   }
 }
 
-.search input {
-  width: 200px;
+/*==========================================================================
+                End Sort/Search Styling - Begin Question list sorting
+============================================================================*/
+
+.questionList {
+  float: left;
+  clear: both;
+  list-style: none;
+  width: 100%;
+
+  li {
+    border-bottom:1px solid $orangeColor;
+    width: 100%;
+
+    img {
+      border-radius: 100%;
+    }
+  }
 }
-
-
 
 /*==========================================================================
                             Begin Icon Fonts CSS

@@ -4,6 +4,7 @@ angular.module('ParentHood')
   .controller('QuestionsController', ['questionsFactory', 'usersFactory', '$scope', '$rootScope', '$location', '$filter', '$routeParams', function (questionsFactory, usersFactory, $scope, $rootScope, $location, $filter, $routeParams) {
 
   usersFactory.checkUser();
+  $scope.reverse = false;
 
   $('#navModal').foundation('reveal', 'close');
 
