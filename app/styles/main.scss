@@ -293,7 +293,7 @@ header {
 
   @media (max-width: 635px) {
     span {
-      margin-top: 85px;
+      margin-top: 29.5%;
     }
   }
 
@@ -306,7 +306,7 @@ header {
   float: right;
   font-size: .8em;
   color: lightGray;
-  //padding-top: 3.5%;
+
 }
 
 .questionText {
@@ -320,7 +320,6 @@ header {
     overflow: auto;
 
     p {
-
       color: white;
       background-color: $yellowColor;
       border-radius: 20px;
@@ -398,7 +397,73 @@ header {
     margin: 1%;
   }
 }
-/*==========================================================================
+
+/*============================================================================
+                            Begin Add Question Styling
+============================================================================*/
+
+.addForm {
+  overflow: auto;
+}
+.addQuestionText {
+  width: 80%;
+  float: left;
+  clear: both;
+  margin: 2%;
+}
+
+.addTagSpan {
+  float: left;
+}
+
+.addTagList {
+  width: 40%;
+  height: 100%;
+  list-style: none;
+  float: right;
+  margin: 1% 0 0 0;
+
+  li {
+    float: left;
+    margin: 1%;
+  }
+}
+
+//login
+ .loginform {
+   input {
+     width:30%;
+   }
+ }
+//footer
+footer {
+  h2 {
+    margin-left: 5%;
+    color: gray;
+    font-size: 1.0em;
+    line-height: .9;
+    font-family: $scriptFont;
+  }
+}
+
+//profile edit
+.profileEdit {
+  span {
+    margin: 1%;
+  }
+  input {
+    margin: 1%;
+  }
+
+  button {
+
+  }
+  & > * {
+    float: left;
+    clear: both;
+  }
+}
+/*============================================================================
                             Begin Icon Fonts CSS
 ===========================================================================*/
 
