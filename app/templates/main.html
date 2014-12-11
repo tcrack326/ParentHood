@@ -15,12 +15,25 @@
       </div>
   </div>
     <ul class='questionList'>
-      <li ng-repeat="question in questions | filter:searchText"> On<span> {{ question.createdAt }}</span><img src="{{ question.userImageURL }}"/><a href="#parent/{{ question.user }}"> {{ question.authorName }}</a> asked: <a href="#question/{{ question.objectId }}"> "{{ question.text }}"</a>
-        <br/>
-        <h5> Views: {{ question.totalViews }} </h5>
-        <h5> Answers: {{ question.totalAnswers }}</h5>
-        <h5> Votes: {{ question.totalVotes }}</h5>
-        <h5> Tags: <ul><li ng-repeat="tag in question.tags"><a class="tag" href="" ng-click="doSearch(searchText)">{{ tag }}<a></li></ul></h5>
+      <li ng-repeat="question in questions | filter:searchText">
+        <ul class="tagList">
+          <li> Tags: </li>
+          <li ng-repeat="tag in question.tags"><a class="tag" href="" ng-click="doSearch(searchText)">  {{ tag }}</a></li>
+        </ul>
+        <div class="author">
+          <a class="author" href="#parent/{{ question.user }}"><img src="{{ question.userImageURL }}"/><h3 class="authorName"> {{ question.authorName }}</h3></a>
+          <span>asked:</span>
+        </div>
+        <div class="questionText">
+          <a href="#question/{{ question.objectId }}">
+            <p> "{{ question.text }}"</p>
+          </a>
+        </div>
+          <span class="stats"> Views: <span class="number">{{ question.totalViews }}</span> </span>
+          <span class='stats'> Answers: <span class="number">{{ question.totalAnswers }}</span></span>
+          <span class='stats'> Votes: <span class="number">{{ question.totalVotes }}</span></span>
+         <span class="questionDate">on {{ question.createdAt | date:'medium' }}</span>
       </li>
+      <!-- end of question list -->
     </ul>
 </section>

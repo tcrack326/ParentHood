@@ -15,7 +15,7 @@ angular.module('ParentHood')
 
   questionsFactory.getQuestions().then( function (data) {
     $scope.questions = data;
-    $scope.order('-totalViews',false);
+    $scope.order('-createdAt',false);
   });
 
   //set up the sorting with $filter
