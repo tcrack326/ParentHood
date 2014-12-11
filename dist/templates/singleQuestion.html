@@ -1,0 +1,48 @@
+<button class="button removeBtn" ng-if="userQuestionAuth(question)" id="deleteQuestion" ng-click="deleteQuestion(question)">Remove Question</button>
+
+<div class="author">
+  <a class="author" href="#parent/{{ question.user }}"><img src="{{ question.userImageURL }}"/><h3 class="authorName"> {{ question.authorName }}</h3></a>
+  <span>asked:</span>
+</div>
+
+<div class="questionText">
+  <a href="#question/{{ question.objectId }}">
+    <p> "{{ question.text }}"</p>
+  </a>
+</div>
+
+<span class="questionDate">on {{ question.createdAt | date:'medium' }}</span>
+<br/>
+  <span class="stats"> Views: <span class="number">{{ question.totalViews }}</span> </span>
+  <span class='stats'> Answers: <span class="number">{{ question.totalAnswers }}</span></span>
+  <span class='stats'> Votes: <span class="number">{{ question.totalVotes }}</span></span>
+
+<ul class="singletagList">
+  <li> Tags: </li>
+  <li ng-repeat="tag in question.tags"><a class="tag" href="" ng-click="doSearch(searchText)">  {{ tag }}</a></li>
+
+</ul>
+<br/>
+<br/>
+<br/>
+
+<div ng-if="userAuth()" id="answerArea">
+  <span class="answerQuestion">Answer the Question</span>
+  <textarea id="answerBox" ng-model="answer.text"></textarea>
+  <button class="button" id="answerQuestion" ng-click="addAnswer(answer,question)">Answer</button>
+</div>
+
+<ul class="answerList">
+  <li class="answer" ng-repeat="answer in answers | orderBy:predicate:reverse">
+    <span ng-if="checkIsAnswer(answer)" class="icon-checkmark-circle checkmark"></span>
+    <span><a href="#/parent/{{answer.user}}">{{ answer.authorName }}</a> answered: </span><br/>
+    <p class="questionText"> {{ answer.text }} </p>
+    <span class="questionDate">On {{ answer.createdAt | date:'medium' }}</span>
+    <div class="buttonGroup">
+      <button class="button" ng-if="userAnswerAuth(answer)" class="deleteAnswer, {{ answer.user }}" ng-click="deleteAnswer(answer,question)">Delete the Answer</button>
+      <button class="button" ng-disabled="hasVotedUp(answer)" ng-if="userVoteAuth(answer)" class="voteUp" ng-click="voteUp(answer, question)"><span class="icon-thumbs-up"></span>Vote Up</button>
+      <button class="button" ng-disabled="hasVotedDown(answer)" ng-if="userVoteAuth(answer)" class="voteDown" ng-click="voteDown(answer, question)"><span class="icon-thumbs-up2"></span>Vote Down</button>
+      <button class="button" ng-disabled="checkIsAnswer(answer)" ng-if="userQuestionAuth(question)" class="isAnswer" ng-click="isAnswer(answer,question)">Mark as the Answer</button>
+    </div>
+  </li>
+</ul>
