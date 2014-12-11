@@ -1,0 +1,9 @@
+<form class="addForm" ng-submit="addQuestion(question)">
+
+  <textarea class="addQuestionText" ng-model="question.text" required placeholder='Ask a Question'></textarea>
+  <span class="addTagSpan">Add some Tags separated by commas: <input ng-model="question.tags" ng-list required placeholder="tag1,tag2,tag3" />
+  <ul class="addTagList">
+    <li class='tag' ng-repeat="tag in question.tags">{{ tag }}</li>
+  </ul>
+  <button class="button">Ask Question</button>
+</form>

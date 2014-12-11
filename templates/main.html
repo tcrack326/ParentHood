@@ -1,0 +1,39 @@
+<section id="questions">
+  <div class="sortSearch">
+      <div class="askButton"><a id='askQuestion' href='#add'><button class="button">Ask a New Question</button></a>
+      </div>
+      <ul class='sort'>
+        <!-- <a href='' ng-if="username" ng-click='doSearch(username)'> My Questions </a>
+        <a href='' ng-click="reverse=!reverse;order('-totalAnswers', reverse)"> Unanswered </a> -->
+        <li>Sort by:  </li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('totalViews',reverse)">Views</a></li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('createdAt',reverse)">Recent</a></li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('totalAnswers',reverse)">Answers</a></li>
+        <li><a class="tag" href='' ng-click="reverse=!reverse;order('totalVotes',reverse)">Votes</a></li>
+      </ul>
+      <div class='searchInput'>Search <span class="icon-search"></span> <input ng-model="searchText" placeholder="Users, Tags, or Text"/>
+      </div>
+  </div>
+    <ul class='questionList'>
+      <li ng-repeat="question in questions | filter:searchText">
+        <ul class="tagList">
+          <li> Tags: </li>
+          <li ng-repeat="tag in question.tags"><a class="tag" href="" ng-click="doSearch(searchText)">  {{ tag }}</a></li>
+        </ul>
+        <div class="author">
+          <a class="author" href="#parent/{{ question.user }}"><img src="{{ question.userImageURL }}"/><h3 class="authorName"> {{ question.authorName }}</h3></a>
+          <span>asked:</span>
+        </div>
+        <div class="questionText">
+          <a href="#question/{{ question.objectId }}">
+            <p> "{{ question.text }}"</p>
+          </a>
+        </div>
+          <span class="stats"> Views: <span class="number">{{ question.totalViews }}</span> </span>
+          <span class='stats'> Answers: <span class="number">{{ question.totalAnswers }}</span></span>
+          <span class='stats'> Votes: <span class="number">{{ question.totalVotes }}</span></span>
+         <span class="questionDate">on {{ question.createdAt | date:'medium' }}</span>
+      </li>
+      <!-- end of question list -->
+    </ul>
+</section>

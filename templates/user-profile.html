@@ -1,0 +1,17 @@
+<div class="profileView" ng-if="!isEditing">
+  <button class="button editProfile" ng-if="userAuth()" ng-click="beginEditing()">Edit Profile</button>
+  <img src=" {{ userStats.imageURL }} ">
+  <h2>Hi, I'm {{user.username }} </h2>
+  <h3> {{ user.email }} </h3>
+  <h5> I've asked {{ userStats.questionsAsked }} questions and I've posted {{ userStats.answersPosted }} answers.  {{userStats.correctAnswers }} have been marked as the correct answer. I've voted {{userStats.votesMade }} times. </h5>
+  <h5> I've been a parent of {{ userStats.numberOfChildren }} child/children for {{ userStats.yearsParenting }} years.</h5>
+  <h5>A little about me...</h5><br/><p> {{ userStats.description }}</p>
+  <h5> My badges:<ul><li ng-repeat="badge in userStats.badges"> {{ userStats.badges }}<li></ul></h5>
+</div>
+
+<div class="profileEdit" ng-if="isEditing">
+  <span>Image Url: </span><input ng-model="userStats.imageURL" placeholder="{{ userStats.imageURL }}"/>
+  <span>Number of Children: </span><input type='number' ng-model="userStats.numberOfChildren" placeholder=" {{ userStats.numberOfChildren }}"/>
+  <span>Number of Years Parenting: </span><input type='number' ng-model="userStats.yearsParenting" placeholder=" {{ userStats.yearsParenting }}"/>
+  <button class="button" ng-click="updateUserStats(userStats)">Update Profile</button>
+</div>
