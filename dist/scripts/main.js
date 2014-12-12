@@ -621,7 +621,7 @@ var logOutUser = function() {
       question.totalVotes++;
       questionsFactory.updateQuestion(question);
       //update the user stats
-      userStatsFactory.getUserStats(Parse.User.curret().id).then( function (data){
+      userStatsFactory.getUserStats(Parse.User.current().id).then( function (data){
         var userStats = data[0];
         userStats.votesMade++;
         userStatsFactory.updateUserStats(userStats);
