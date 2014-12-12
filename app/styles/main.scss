@@ -40,6 +40,7 @@ a {
     color: $blueColor;
   }
 }
+
 .tag {
   color: white;
   background-color: $orangeColor;
@@ -86,6 +87,10 @@ a {
 
  img {
    border-radius: 100%;
+ }
+
+ input {
+   border-radius: 10px;
  }
 
 /*===========================================================================
@@ -311,7 +316,7 @@ header {
 
 .questionText {
   overflow: auto;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
   clear: both;
@@ -446,8 +451,26 @@ footer {
   }
 }
 
+//profileView
+.profileView {
+  color: gray;
+  img {
+    height: 15%;
+    width: 15%;
+  }
+}
+
+.editProfile {
+  float: right;
+}
+
+.badges {
+  list-style: none;
+}
+
 //profile edit
 .profileEdit {
+  color: gray;
   span {
     margin: 1%;
   }
@@ -455,10 +478,12 @@ footer {
     margin: 1%;
   }
 
+
+
   button {
 
   }
-  
+
   & > * {
     float: left;
     clear: both;
