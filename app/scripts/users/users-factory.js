@@ -36,13 +36,13 @@
 
     if(Parse.User.current()){
 
-      $('.login').html("<li><a href='/'><span class='headerIcon icon-home'></span>Home</a></li><li><a href='#/parent/"+ Parse.User.current().id+"'><span class='icon-profile'></span>My Profile</a></li><li><a href='' onClick='logOutUser()'><span class='icon-exit'></span>Logout</a></li>");
+      $('.login').html("<li><a href='#'><span class='headerIcon icon-home'></span>Home</a></li><li><a href='#/parent/"+ Parse.User.current().id+"'><span class='icon-profile'></span>My Profile</a></li><li><a href='' onClick='logOutUser()'><span class='icon-exit'></span>Logout</a></li>");
 
     }
 
     else {
 
-      $('.login').html("<li><a href='/'><span class='headerIcon icon-home'></span>Home</a></li><li><a href='#/login'><span class='icon-enter'></span>Login</a></li><li><a href='#/signup'><span class='icon-pencil'></span>Sign Up</a></li>");
+      $('.login').html("<li><a href='#'><span class='headerIcon icon-home'></span>Home</a></li><li><a href='#/login'><span class='icon-enter'></span>Login</a></li><li><a href='#/signup'><span class='icon-pencil'></span>Sign Up</a></li>");
 
     }
   }
