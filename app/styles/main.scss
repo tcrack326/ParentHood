@@ -1,5 +1,17 @@
 
 @import '../../bower_components/foundation/scss/foundation.scss';
+@import url(http://weloveiconfonts.com/api/?family=brandico|entypo);
+
+//icon fonts
+/* brandico */
+[class*="brandico-"]:before {
+  font-family: 'brandico', sans-serif;
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
 
 
 //constants
@@ -146,7 +158,11 @@ header {
       width: 100%;
       text-align: center;
       clear: both;
-      font-size: 24px;
+      font-size: 18px;
+
+      &.hamMenu {
+        font-size: 26px;
+      }
     }
   }
 }
@@ -490,49 +506,4 @@ footer {
     float: left;
     clear: both;
   }
-}
-/*============================================================================
-                            Begin Icon Fonts CSS
-===========================================================================*/
-
-.icon-home:before {
-    content: "\e600";
-}
-
-.icon-profile:before {
-    content: "\e620";
-}
-
-.icon-exit:before {
-    content: "\e60e";
-}
-
-.icon-enter:before {
-    content: "\e60d";
-}
-
-//the burger
-.icon-menu:before {
-    content: "\e623";
-    font-size: 32px;
-}
-
-.icon-pencil:before {
-    content: "\e624";
-}
-
-.icon-search:before {
-    content: "\e626";
-}
-
-.icon-checkmark-circle:before {
-    content: "\e60a";
-}
-
-.icon-thumbs-up:before {
-    content: "\e618";
-}
-
-.icon-thumbs-up2:before {
-    content: "\e619";
 }
